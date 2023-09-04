@@ -1,0 +1,29 @@
+uuid: 383883a3-de31-4f46-9294-de19a780e9f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - contextual
+    - file
+    - node
+    - publication_date
+    - publishcontent
+    - system
+id: editor
+label: Editor
+weight: 5
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'edit any news content'
+  - 'publish any node type news'
+  - 'publish any node type page'
+  - 'set news published on date'
+  - 'unpublish any node type news'
+  - 'unpublish any node type page'
+  - 'view the administration theme'

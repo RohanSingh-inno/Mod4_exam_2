@@ -1,0 +1,32 @@
+<?php 
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function title_length_form_node_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+    // the content type for which restrict the title field.
+    $content_type = 'news';
+  
+    // if the form is for the news type.
+    if ($form['#form_id'] == 'node_' . $content_type . '_form') {
+      // Adding a custom validation handler for the title field.
+      $form['#validate'][] = 'title_length_custom_title_length_validation';
+    }
+  }
+  
+  /**
+   * Custom validation function to restrict the title field to 25 characters.
+   */
+  function title_length_custom_title_length_validation($form, FormStateInterface $form_state) {
+    // Get the value of the title field.
+    $title = $form_state->getValue('title')[0]['value'];
+  
+    // Checking if the title exceeds 25 characters.
+    if (strlen($title) > 25) {
+      // Adding a form error if the title is too long.
+      $form_state->setErrorByName('title', t('The title field must not exceed 25 characters.'));
+    }
+  }
+
+?>

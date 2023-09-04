@@ -1,0 +1,27 @@
+uuid: add66138-896d-4060-84f1-eb233a19ca60
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.news
+  module:
+    - contextual
+    - file
+    - node
+    - system
+    - toolbar
+    - tour
+id: reporter
+label: Reporter
+weight: 4
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content overview'
+  - 'access contextual links'
+  - 'access files overview'
+  - 'access toolbar'
+  - 'access tour'
+  - 'create news content'
+  - 'edit own news content'
+  - 'view the administration theme'

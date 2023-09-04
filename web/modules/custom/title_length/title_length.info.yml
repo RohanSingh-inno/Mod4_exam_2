@@ -1,0 +1,5 @@
+name: Title length
+core_version_requirement: ^10
+type: module
+package: custom
+description: Module for title length.
