@@ -1,0 +1,38 @@
+<?php
+
+/**
+ * @file
+ * This is a module file.
+ */
+
+use Drupal\node\Entity\Node;
+
+/**
+ * Implements hook_cron().
+ */
+function api_task_cron() {
+
+  // Load and update nodes that have the boolean fieldchecked.
+  $query = \Drupal::entityQuery('node')
+    ->condition('type', 'news')
+    ->condition('field_featured_item', 1)
+    ->accessCheck(TRUE);
+  $notice_ids = $query->execute();
+
+  if (!empty($notice_ids)) {
+
+    $storage = Drupal::entityTypeManager()->getStorage('node');
+    foreach ($notice_ids as $notice_id) {
+      // \Drupal::logger('Hello')->notice(serialize($notice_id));
+      $node = Node::load($notice_id);
+      $notice_details = $storage->load($notice_id);
+      $event_date = $notice_details->get('field_featured_item')->value;
+
+      if ($event_date == 1) {
+        $node->set('field_featured_item', 0);
+        $node->save();
+      }
+    }
+  }
+
+}

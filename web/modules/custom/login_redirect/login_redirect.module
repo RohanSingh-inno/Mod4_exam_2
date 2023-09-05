@@ -1,0 +1,43 @@
+<?php
+
+/**
+ * @file
+ * This is a module file.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function login_redirect_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $form['#submit'][] = 'login_redirect_user_login_submit';
+}
+
+/**
+ * Form submission handler for user_login_form().
+ *
+ * Redirects the user to the appropriate dashboard based on their role.
+ */
+function login_redirect_user_login_submit(&$form, FormStateInterface $form_state) {
+  // Getting the logged-in user.
+  $user = \Drupal::currentUser();
+  $editor_dashboard_path = '/editor-dashboard';
+  $reporter_dashboard_path = '/reporter-dashboard';
+
+  // Check the user's roles and set the appropriate destination URL.
+  if ($user->hasRole('editor')) {
+    $url = $editor_dashboard_path;
+  }
+  elseif ($user->hasRole('reporter')) {
+    $url = $reporter_dashboard_path;
+  }
+  else {
+    // Handle other roles or default redirection.
+    $url = '/default_dashboard';
+  }
+  $response = new RedirectResponse($url);
+
+  $form_state->setResponse($response);
+}

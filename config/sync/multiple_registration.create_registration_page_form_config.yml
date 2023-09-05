@@ -1,0 +1,15 @@
+roles:
+  reporter:
+    path: /reporter-register
+    url: /user/register/reporter
+    redirect_path: /reporter-dashboard
+    hidden: 0
+    form_mode_register: register
+    form_mode_edit: register
+  editor:
+    path: /editor-register
+    url: /user/register/editor
+    redirect_path: /editor-dashboard
+    hidden: 0
+    form_mode_register: register
+    form_mode_edit: register
