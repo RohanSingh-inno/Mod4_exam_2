@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_featured_item
     - field.field.node.news.field_news_image
     - field.field.node.news.field_news_tags
     - node.type.news
@@ -22,6 +23,16 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 3
+    region: content
+  field_featured_item:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_news_image:
     type: image
@@ -47,4 +58,5 @@ content:
     third_party_settings: {  }
     weight: 0
     region: content
-hidden: {  }
+hidden:
+  published_at: true

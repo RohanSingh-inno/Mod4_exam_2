@@ -6,6 +6,7 @@ dependencies:
     - node.type.news
   module:
     - contextual
+    - field_permissions
     - file
     - node
     - publication_date
@@ -20,10 +21,14 @@ permissions:
   - 'access content overview'
   - 'access contextual links'
   - 'access files overview'
+  - 'create field_featured_item'
   - 'edit any news content'
+  - 'edit field_featured_item'
+  - 'edit own field_featured_item'
   - 'publish any node type news'
   - 'publish any node type page'
   - 'set news published on date'
   - 'unpublish any node type news'
   - 'unpublish any node type page'
+  - 'view field_featured_item'
   - 'view the administration theme'

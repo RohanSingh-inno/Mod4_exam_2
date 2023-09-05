@@ -23,6 +23,7 @@
         "drupal/core-project-message": "^10.1",
         "drupal/core-recommended": "^10.1",
         "drupal/devel": "^5.1",
+        "drupal/field_permissions": "^1.2",
         "drupal/multiple_registration": "^3.2",
         "drupal/node_title_validation": "^2.0",
         "drupal/publication_date": "^2.0@beta",

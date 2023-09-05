@@ -1,6 +1,6 @@
 uuid: 6770e1e7-bfe6-4fb0-b1f2-a875ac51a2b5
 langcode: en
-status: false
+status: true
 dependencies:
   config:
     - views.view.tags_list

@@ -1,0 +1,9 @@
+api_task.news_listing:
+  path: '/get/news'
+  defaults:
+    _controller: '\Drupal\api_task\Controller\GetNewsController::getProduct'
+    _format: json
+  methods: [GET]
+  requirements:
+    # no restriction as it should be accessible by all
+    _access: 'TRUE'

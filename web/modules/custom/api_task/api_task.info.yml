@@ -1,0 +1,5 @@
+name: API Task
+core_version_requirement: ^10
+type: module
+package: custom
+description: 'This will be used to display news data in json format.'

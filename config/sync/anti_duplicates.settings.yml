@@ -3,7 +3,7 @@ _core:
 anti_duplicates_message:
   value: '<p>no duplicates</p>'
   format: basic_html
-anti_duplicates_form_submission: true
+anti_duplicates_form_submission: false
 anti_duplicates_search_type: 1
 anti_duplicates_content_types:
   article: '0'

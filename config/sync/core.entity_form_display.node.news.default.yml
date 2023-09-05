@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.field.node.news.body
+    - field.field.node.news.field_featured_item
     - field.field.node.news.field_news_image
     - field.field.node.news.field_news_tags
     - image.style.thumbnail
@@ -11,6 +12,7 @@ dependencies:
   module:
     - image
     - path
+    - publication_date
     - text
 id: node.news.default
 targetEntityType: node
@@ -33,6 +35,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_featured_item:
+    type: boolean_checkbox
+    weight: 124
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
   field_news_image:
     type: image_image
     weight: 122
@@ -42,10 +51,14 @@ content:
       preview_image_style: thumbnail
     third_party_settings: {  }
   field_news_tags:
-    type: options_select
+    type: entity_reference_autocomplete_tags
     weight: 123
     region: content
-    settings: {  }
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   path:
     type: path
@@ -59,6 +72,12 @@ content:
     region: content
     settings:
       display_label: true
+    third_party_settings: {  }
+  published_at:
+    type: publication_date_timestamp
+    weight: 10
+    region: content
+    settings: {  }
     third_party_settings: {  }
   status:
     type: boolean_checkbox
